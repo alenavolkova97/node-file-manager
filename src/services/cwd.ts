@@ -1,4 +1,5 @@
 import os from 'os';
+import path from 'path';
 
 class Cwd {
     private currentPath: string;
@@ -9,6 +10,12 @@ class Cwd {
 
     get() {
         return this.currentPath;
+    }
+
+    up() {
+        const newPath = path.resolve(this.currentPath, '..');
+
+        this.currentPath = newPath;
     }
 }
 

@@ -1,7 +1,14 @@
+import { cwd } from "./cwd";
 import { bye } from "./feedback";
 
 export const processCommand = async (command: string) => {
     switch (command) {
+        case 'up': {
+            cwd.up();
+
+            break;
+        }
+
         case '.exit': {
             bye();
 
