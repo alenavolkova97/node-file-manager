@@ -1,3 +1,4 @@
+import { cat } from "./commands/cat";
 import { cd } from "./commands/cd";
 import { ls } from "./commands/ls";
 import { cwd } from "./cwd";
@@ -21,6 +22,12 @@ export const processInput = async (input: string) => {
 
         case 'ls': {
             await ls();
+
+            break;
+        }
+
+        case 'cat': {
+            await cat(input);
 
             break;
         }
