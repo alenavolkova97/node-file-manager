@@ -1,10 +1,19 @@
+import { cd } from "./commands/cd";
 import { cwd } from "./cwd";
 import { bye } from "./feedback";
 
-export const processCommand = async (command: string) => {
+export const processInput = async (input: string) => {
+    const command = input.split(' ')[0];
+
     switch (command) {
         case 'up': {
             cwd.up();
+
+            break;
+        }
+
+        case 'cd': {
+            cd(input);
 
             break;
         }

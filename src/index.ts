@@ -1,15 +1,15 @@
-import { processCommand } from "./services/commandProcessor";
+import { processInput } from "./services/inputProcessor";
 import { bye, greet, operationFailed } from "./services/feedback";
-import { waitForCommands } from "./services/inputReader";
+import { waitForUserInput } from "./services/inputReader";
 
 greet();
 
 async function main() {
     while (true) {
-        const command = await waitForCommands();
+        const userInput = await waitForUserInput();
 
         try {
-            await processCommand(command);
+            await processInput(userInput);
         } catch (err) {
             operationFailed();
         }
