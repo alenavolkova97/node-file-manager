@@ -1,4 +1,5 @@
 import { cd } from "./commands/cd";
+import { ls } from "./commands/ls";
 import { cwd } from "./cwd";
 import { bye } from "./feedback";
 
@@ -14,6 +15,12 @@ export const processInput = async (input: string) => {
 
         case 'cd': {
             cd(input);
+
+            break;
+        }
+
+        case 'ls': {
+            await ls();
 
             break;
         }
