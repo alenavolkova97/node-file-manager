@@ -1,6 +1,7 @@
 import { add } from "./commands/add";
 import { cat } from "./commands/cat";
 import { cd } from "./commands/cd";
+import { cp } from "./commands/cp";
 import { ls } from "./commands/ls";
 import { rn } from "./commands/rn";
 import { cwd } from "./cwd";
@@ -42,6 +43,12 @@ export const processInput = async (input: string) => {
 
         case 'rn': {
             await rn(input);
+
+            break;
+        }
+
+        case 'cp': {
+            await cp(input);
 
             break;
         }

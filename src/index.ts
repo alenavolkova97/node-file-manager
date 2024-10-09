@@ -11,7 +11,7 @@ async function main() {
         try {
             await processInput(userInput);
         } catch (err) {
-            operationFailed();
+            operationFailed(err);
         }
     }
 }

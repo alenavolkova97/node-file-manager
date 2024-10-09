@@ -11,6 +11,10 @@ export const bye = () => {
     console.log(`Thank you for using File Manager, ${username}, goodbye!`);
 }
 
-export const operationFailed = () => {
+export const operationFailed = (err?: unknown) => {
+    if (err) {
+        console.log(err);
+    }
+
     console.log('Operation failed');
 }
