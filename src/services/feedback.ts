@@ -10,3 +10,7 @@ export const greet = () => {
 export const bye = () => {
     console.log(`Thank you for using File Manager, ${username}, goodbye!`);
 }
+
+export const operationFailed = () => {
+    console.log('Operation failed');
+}

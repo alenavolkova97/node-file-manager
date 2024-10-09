@@ -8,6 +8,10 @@ export const processCommand = async (command: string) => {
             process.exit(0);
         }
 
+        case '.failed': {
+            throw new Error('unknown');
+        }
+
         default: {
             console.log(`Error: unknown command "${command}"`);
         }
