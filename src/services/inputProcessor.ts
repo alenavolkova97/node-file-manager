@@ -3,6 +3,8 @@ import { cat } from "./commands/cat";
 import { cd } from "./commands/cd";
 import { cp } from "./commands/cp";
 import { ls } from "./commands/ls";
+import { mv } from "./commands/mv";
+import { rm } from "./commands/rm";
 import { rn } from "./commands/rn";
 import { cwd } from "./cwd";
 import { bye } from "./feedback";
@@ -49,6 +51,18 @@ export const processInput = async (input: string) => {
 
         case 'cp': {
             await cp(input);
+
+            break;
+        }
+
+        case 'mv': {
+            await mv(input);
+
+            break;
+        }
+
+        case 'rm': {
+            await rm(input);
 
             break;
         }
