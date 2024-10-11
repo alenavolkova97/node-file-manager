@@ -4,16 +4,16 @@ import { waitForUserInput } from "./services/inputReader";
 
 greet();
 
-async function main() {
-    while (true) {
-        const userInput = await waitForUserInput();
+const main = async () => {
+  while (true) {
+    const userInput = await waitForUserInput();
 
-        try {
-            await processInput(userInput);
-        } catch (err) {
-            operationFailed(err);
-        }
+    try {
+      await processInput(userInput);
+    } catch (err) {
+      operationFailed(err);
     }
+  }
 }
 
 main();

@@ -14,99 +14,99 @@ import { cwd } from "./cwd";
 import { bye, unknownCommand } from "./feedback";
 
 export const processInput = async (input: string) => {
-    const command = input.split(' ')[0];
+  const command = input.split(' ')[0];
 
-    switch (command) {
-        case 'up': {
-            cwd.up();
+  switch (command) {
+    case 'up': {
+      cwd.up();
 
-            break;
-        }
-
-        case 'cd': {
-            cd(input);
-
-            break;
-        }
-
-        case 'ls': {
-            await ls();
-
-            break;
-        }
-
-        case 'cat': {
-            await cat(input);
-
-            break;
-        }
-
-        case 'add': {
-            await add(input);
-
-            break;
-        }
-
-        case 'rn': {
-            await rn(input);
-
-            break;
-        }
-
-        case 'cp': {
-            await cp(input);
-
-            break;
-        }
-
-        case 'mv': {
-            await mv(input);
-
-            break;
-        }
-
-        case 'rm': {
-            await rm(input);
-
-            break;
-        }
-
-        case 'os': {
-            osCommand(input);
-
-            break;
-        }
-
-        case 'hash': {
-            await hash(input);
-
-            break;
-        }
-
-        case 'compress': {
-            await compress(input);
-
-            break;
-        }
-
-        case 'decompress': {
-            await decompress(input);
-
-            break;
-        }
-
-        case '.exit': {
-            bye();
-
-            process.exit(0);
-        }
-
-        case '.failed': {
-            throw new Error('unknown');
-        }
-
-        default: {
-            unknownCommand(command);
-        }
+      break;
     }
+
+    case 'cd': {
+      cd(input);
+
+      break;
+    }
+
+    case 'ls': {
+      await ls();
+
+      break;
+    }
+
+    case 'cat': {
+      await cat(input);
+
+      break;
+    }
+
+    case 'add': {
+      await add(input);
+
+      break;
+    }
+
+    case 'rn': {
+      await rn(input);
+
+      break;
+    }
+
+    case 'cp': {
+      await cp(input);
+
+      break;
+    }
+
+    case 'mv': {
+      await mv(input);
+
+      break;
+    }
+
+    case 'rm': {
+      await rm(input);
+
+      break;
+    }
+
+    case 'os': {
+      osCommand(input);
+
+      break;
+    }
+
+    case 'hash': {
+      await hash(input);
+
+      break;
+    }
+
+    case 'compress': {
+      await compress(input);
+
+      break;
+    }
+
+    case 'decompress': {
+      await decompress(input);
+
+      break;
+    }
+
+    case '.exit': {
+      bye();
+
+      process.exit(0);
+    }
+
+    case '.failed': {
+      throw new Error('unknown');
+    }
+
+    default: {
+      unknownCommand(command);
+    }
+  }
 }

@@ -3,13 +3,13 @@ import path from 'path';
 import { cwd } from '../cwd';
 
 export const rn = async (input: string) => {
-    const splitted = input.split(' ');
+  const splitted = input.split(' ');
 
-    const oldFilename = splitted[1];
-    const newFilename = splitted[2];
+  const oldFileName = splitted[1];
+  const newFileName = splitted[2];
 
-    const oldFilepath = path.resolve(cwd.get(), oldFilename);
-    const newFilepath = path.resolve(cwd.get(), newFilename);
+  const oldFilepath = path.resolve(cwd.get(), oldFileName);
+  const newFilepath = path.resolve(cwd.get(), newFileName);
 
-    await fs.rename(oldFilepath, newFilepath);
+  await fs.rename(oldFilepath, newFilepath);
 }
