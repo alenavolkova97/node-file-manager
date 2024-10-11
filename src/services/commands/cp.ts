@@ -1,6 +1,7 @@
 import fs from 'fs/promises';
 import path from 'path';
 import { cwd } from '../cwd';
+import { copyFile } from '../../utils/copyFile';
 
 async function isDirectory(dirPath: string) {
     try {
@@ -22,7 +23,7 @@ export const cp = async (input: string) => {
     const pathToFile = path.resolve(cwd.get(), filename);
     const pathToNewDirectory = path.resolve(cwd.get(), splitted[2]);
 
-    await fs.copyFile(
+    await copyFile(
         pathToFile,
         await isDirectory(pathToNewDirectory)
             ? path.resolve(pathToNewDirectory, filename)
