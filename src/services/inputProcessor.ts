@@ -4,10 +4,11 @@ import { cd } from "./commands/cd";
 import { cp } from "./commands/cp";
 import { ls } from "./commands/ls";
 import { mv } from "./commands/mv";
+import { osCommand } from "./commands/os";
 import { rm } from "./commands/rm";
 import { rn } from "./commands/rn";
 import { cwd } from "./cwd";
-import { bye } from "./feedback";
+import { bye, unknownCommand } from "./feedback";
 
 export const processInput = async (input: string) => {
     const command = input.split(' ')[0];
@@ -67,6 +68,12 @@ export const processInput = async (input: string) => {
             break;
         }
 
+        case 'os': {
+            osCommand(input);
+
+            break;
+        }
+
         case '.exit': {
             bye();
 
@@ -78,7 +85,7 @@ export const processInput = async (input: string) => {
         }
 
         default: {
-            console.log(`Error: unknown command "${command}"`);
+            unknownCommand(command);
         }
     }
 }

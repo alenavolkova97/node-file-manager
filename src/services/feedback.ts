@@ -18,3 +18,7 @@ export const operationFailed = (err?: unknown) => {
 
     console.log('Operation failed');
 }
+
+export const unknownCommand = (command: string) => {
+    console.log(`Error: unknown command "${command}"`);
+};
