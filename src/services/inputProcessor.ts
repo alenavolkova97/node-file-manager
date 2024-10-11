@@ -1,7 +1,9 @@
 import { add } from "./commands/add";
 import { cat } from "./commands/cat";
 import { cd } from "./commands/cd";
+import { compress } from "./commands/compress";
 import { cp } from "./commands/cp";
+import { decompress } from "./commands/decompress";
 import { hash } from "./commands/hash";
 import { ls } from "./commands/ls";
 import { mv } from "./commands/mv";
@@ -77,6 +79,18 @@ export const processInput = async (input: string) => {
 
         case 'hash': {
             await hash(input);
+
+            break;
+        }
+
+        case 'compress': {
+            await compress(input);
+
+            break;
+        }
+
+        case 'decompress': {
+            await decompress(input);
 
             break;
         }
