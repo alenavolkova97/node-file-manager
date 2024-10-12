@@ -1,9 +1,9 @@
-import fs from 'fs/promises';
-import path from 'path';
-import { cwd } from '../cwd';
+import fs from "fs/promises";
+import path from "path";
+import { cwd } from "../cwd";
 
 export const rn = async (input: string) => {
-  const splitted = input.split(' ');
+  const splitted = input.split(" ");
 
   const pathToFile = splitted[1];
   const newFileName = splitted[2];
@@ -12,4 +12,4 @@ export const rn = async (input: string) => {
   const newAbsolutePathToFile = path.resolve(cwd.get(), newFileName);
 
   await fs.rename(oldAbsolutePathToFile, newAbsolutePathToFile);
-}
+};

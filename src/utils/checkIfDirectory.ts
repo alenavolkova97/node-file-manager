@@ -1,4 +1,4 @@
-import fs from 'fs/promises';
+import fs from "fs/promises";
 
 export const checkIfDirectory = async (dirPath: string) => {
   try {
@@ -8,4 +8,4 @@ export const checkIfDirectory = async (dirPath: string) => {
   } catch (error) {
     return false;
   }
-}
+};

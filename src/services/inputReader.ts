@@ -1,5 +1,5 @@
-import readline from 'readline/promises';
-import { cwd } from './cwd';
+import readline from "readline/promises";
+import { cwd } from "./cwd";
 
 export const waitForUserInput = async () => {
   const rl = readline.createInterface({

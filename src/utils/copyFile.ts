@@ -1,20 +1,20 @@
-import fs from 'fs';
+import fs from "fs";
 
 export const copyFile = (filePath1: string, filePath2: string) => {
   return new Promise<void>((resolve, reject) => {
     const readableStream = fs.createReadStream(filePath1);
     const writableStream = fs.createWriteStream(filePath2);
 
-    readableStream.on('error', (err) => {
+    readableStream.on("error", (err) => {
       reject(err);
     });
 
-    writableStream.on('error', (err) => {
+    writableStream.on("error", (err) => {
       reject(err);
     });
 
-    readableStream.pipe(writableStream).on('finish', () => {
+    readableStream.pipe(writableStream).on("finish", () => {
       resolve();
     });
   });
-}
+};

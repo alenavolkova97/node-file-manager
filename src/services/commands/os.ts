@@ -1,42 +1,44 @@
-import os from 'os';
-import { unknownCommand } from '../feedback';
+import os from "os";
+import { unknownCommand } from "../feedback";
 
 export const osCommand = (input: string) => {
-  const type = input.split(' ')[1];
+  const type = input.split(" ")[1];
 
   switch (type) {
-    case '--EOL': {
+    case "--EOL": {
       console.log(os.EOL);
 
       break;
     }
 
-    case '--cpus': {
+    case "--cpus": {
       const cpus = os.cpus();
 
       const cpusResult = cpus.map((cpu) => ({
         ...cpu,
-        speedInGHz: (cpu.speed / 1000),
+        speedInGHz: cpu.speed / 1000,
       }));
 
-      console.log(`CPUS amount: ${cpus.length}\nCPUS info: ${JSON.stringify(cpusResult, null, '  ')}`);
+      console.log(
+        `CPUS amount: ${cpus.length}\nCPUS info: ${JSON.stringify(cpusResult, null, "  ")}`,
+      );
 
       break;
     }
 
-    case '--homedir': {
+    case "--homedir": {
       console.log(os.homedir());
 
       break;
     }
 
-    case '--username': {
+    case "--username": {
       console.log(os.userInfo().username);
 
       break;
     }
 
-    case '--architecture': {
+    case "--architecture": {
       console.log(os.arch());
 
       break;
@@ -46,4 +48,4 @@ export const osCommand = (input: string) => {
       unknownCommand(input);
     }
   }
-}
+};

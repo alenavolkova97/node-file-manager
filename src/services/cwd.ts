@@ -1,6 +1,6 @@
-import os from 'os';
-import path from 'path';
-import { checkIfDirectory } from '../utils/checkIfDirectory';
+import os from "os";
+import path from "path";
+import { checkIfDirectory } from "../utils/checkIfDirectory";
 
 class Cwd {
   private currentPath: string;
@@ -14,7 +14,7 @@ class Cwd {
   }
 
   up() {
-    const newAbsolutePathToFile = path.resolve(this.currentPath, '..');
+    const newAbsolutePathToFile = path.resolve(this.currentPath, "..");
 
     this.currentPath = newAbsolutePathToFile;
   }
@@ -31,7 +31,7 @@ class Cwd {
     if (await checkIfDirectory(tryPath)) {
       this.currentPath = tryPath;
     } else {
-      throw new Error('Path should be an existing directory...');
+      throw new Error("Path should be an existing directory...");
     }
   }
 }

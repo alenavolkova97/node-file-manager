@@ -14,99 +14,99 @@ import { cwd } from "./cwd";
 import { bye, unknownCommand } from "./feedback";
 
 export const processInput = async (input: string) => {
-  const command = input.split(' ')[0];
+  const command = input.split(" ")[0];
 
   switch (command) {
-    case 'up': {
+    case "up": {
       cwd.up();
 
       break;
     }
 
-    case 'cd': {
+    case "cd": {
       await cd(input);
 
       break;
     }
 
-    case 'ls': {
+    case "ls": {
       await ls();
 
       break;
     }
 
-    case 'cat': {
+    case "cat": {
       await cat(input);
 
       break;
     }
 
-    case 'add': {
+    case "add": {
       await add(input);
 
       break;
     }
 
-    case 'rn': {
+    case "rn": {
       await rn(input);
 
       break;
     }
 
-    case 'cp': {
+    case "cp": {
       await cp(input);
 
       break;
     }
 
-    case 'mv': {
+    case "mv": {
       await mv(input);
 
       break;
     }
 
-    case 'rm': {
+    case "rm": {
       await rm(input);
 
       break;
     }
 
-    case 'os': {
+    case "os": {
       osCommand(input);
 
       break;
     }
 
-    case 'hash': {
+    case "hash": {
       await hash(input);
 
       break;
     }
 
-    case 'compress': {
+    case "compress": {
       await compress(input);
 
       break;
     }
 
-    case 'decompress': {
+    case "decompress": {
       await decompress(input);
 
       break;
     }
 
-    case '.exit': {
+    case ".exit": {
       bye();
 
       process.exit(0);
     }
 
-    case '.failed': {
-      throw new Error('unknown');
+    case ".failed": {
+      throw new Error("unknown");
     }
 
     default: {
       unknownCommand(command);
     }
   }
-}
+};

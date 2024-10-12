@@ -14,11 +14,11 @@ const main = async () => {
       operationFailed(err);
     }
   }
-}
+};
 
 main();
 
-process.on('SIGINT', () => {
+process.on("SIGINT", () => {
   bye();
 
   process.exit(0);
