@@ -5,11 +5,11 @@ import { cwd } from '../cwd';
 export const rn = async (input: string) => {
   const splitted = input.split(' ');
 
-  const oldFileName = splitted[1];
+  const pathToFile = splitted[1];
   const newFileName = splitted[2];
 
-  const oldFilepath = path.resolve(cwd.get(), oldFileName);
-  const newFilepath = path.resolve(cwd.get(), newFileName);
+  const oldAbsolutePathToFile = path.resolve(cwd.get(), pathToFile);
+  const newAbsolutePathToFile = path.resolve(cwd.get(), newFileName);
 
-  await fs.rename(oldFilepath, newFilepath);
+  await fs.rename(oldAbsolutePathToFile, newAbsolutePathToFile);
 }

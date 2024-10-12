@@ -24,7 +24,7 @@ export const processInput = async (input: string) => {
     }
 
     case 'cd': {
-      cd(input);
+      await cd(input);
 
       break;
     }

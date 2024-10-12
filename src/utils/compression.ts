@@ -1,38 +1,38 @@
 import fs from 'fs';
 import zlib from 'zlib';
 
-export const compressFile = (inputPath: string, outputPath: string) => {
+export const manageFile = (inputPath: string, outputPath: string, operation: "compress" | "decompress") => {
   return new Promise<void>((resolve, reject) => {
     const readStream = fs.createReadStream(inputPath);
     const writeStream = fs.createWriteStream(outputPath);
-    const brotliCompress = zlib.createBrotliCompress();
+    let brotliStream;
+
+    switch (operation) {
+      case 'compress': {
+        brotliStream = zlib.createBrotliCompress();
+  
+        break;
+      }
+
+      case 'decompress': {
+        brotliStream = zlib.createBrotliDecompress();
+  
+        break;
+      }
+
+      default: {
+        throw new Error('Unknown operation');
+      }
+    }
 
     readStream
-      .pipe(brotliCompress)
+      .pipe(brotliStream)
       .pipe(writeStream)
       .on('finish', () => {
         resolve();
       })
       .on('error', (err) => {
-        reject();
-      });
-  });
-}
-
-export const decompressFile = (inputPath: string, outputPath: string) => {
-  return new Promise<void>((resolve, reject) => {
-    const readStream = fs.createReadStream(inputPath);
-    const writeStream = fs.createWriteStream(outputPath);
-    const brotliDecompress = zlib.createBrotliDecompress();
-
-    readStream
-      .pipe(brotliDecompress)
-      .pipe(writeStream)
-      .on('finish', () => {
-        resolve();
-      })
-      .on('error', (err) => {
-        reject();
+        reject(err);
       });
   });
 }

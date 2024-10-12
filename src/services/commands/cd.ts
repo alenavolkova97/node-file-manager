@@ -1,7 +1,7 @@
 import { cwd } from "../cwd";
 
-export const cd = (input: string) => {
+export const cd = async (input: string) => {
   const pathname = input.split(' ')[1];
 
-  cwd.change(pathname);
+  await cwd.change(pathname);
 }

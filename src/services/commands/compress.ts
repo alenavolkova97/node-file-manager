@@ -1,10 +1,14 @@
 import path from "path";
 import { cwd } from "../cwd";
-import { compressFile } from "../../utils/compression";
+import { manageFile } from "../../utils/compression";
 
 export const compress = async (input: string) => {
-  const filePath = path.resolve(cwd.get(), input.split(' ')[1]);
-  const destinationPath = path.resolve(cwd.get(), input.split(' ')[2]);
+  const absolutePathToFile = path.resolve(cwd.get(), input.split(' ')[1]);
+  const absolutePathToDestination = path.resolve(cwd.get(), input.split(' ')[2]);
 
-  await compressFile(filePath, destinationPath);
+  if (absolutePathToDestination.endsWith(".br") === false) {
+    throw new Error("Destination should end with '.br'");
+  }
+
+  await manageFile(absolutePathToFile, absolutePathToDestination, "compress");
 };

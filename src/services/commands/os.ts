@@ -12,7 +12,14 @@ export const osCommand = (input: string) => {
     }
 
     case '--cpus': {
-      console.log(JSON.stringify(os.cpus(), null, '  '));
+      const cpus = os.cpus();
+
+      const cpusResult = cpus.map((cpu) => ({
+        ...cpu,
+        speedInGHz: (cpu.speed / 1000),
+      }));
+
+      console.log(`CPUS amount: ${cpus.length}\nCPUS info: ${JSON.stringify(cpusResult, null, '  ')}`);
 
       break;
     }

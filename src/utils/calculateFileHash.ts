@@ -4,19 +4,19 @@ import crypto from 'crypto';
 export const calculateFileHash = (filePath: string) => {
   return new Promise<string>((resolve, reject) => {
     const hash = crypto.createHash('sha256');
-    const input = fs.createReadStream(filePath);
+    const readStream = fs.createReadStream(filePath);
 
-    input.on('data', chunk => {
+    readStream.on('data', chunk => {
       hash.update(chunk);
     });
 
-    input.on('end', () => {
+    readStream.on('end', () => {
       const fileHash = hash.digest('hex');
 
       resolve(fileHash);
     });
 
-    input.on('error', err => {
+    readStream.on('error', err => {
       reject(err);
     });
   });

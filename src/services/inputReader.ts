@@ -8,7 +8,7 @@ export const waitForUserInput = async () => {
     terminal: false,
   });
 
-  const answer = await rl.question(`${cwd.get()}\n> `);
+  const answer = await rl.question(`You are currently in ${cwd.get()}\n> `);
 
   rl.close();
 

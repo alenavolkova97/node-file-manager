@@ -18,4 +18,8 @@ const main = async () => {
 
 main();
 
-process.on('SIGINT', bye);
+process.on('SIGINT', () => {
+  bye();
+
+  process.exit(0);
+});
