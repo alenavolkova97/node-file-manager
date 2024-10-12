@@ -9,7 +9,7 @@
     "format": "prettier . --write"
   },
   "keywords": [],
-  "author": "",
+  "author": "Alena Volkova",
   "license": "ISC",
   "devDependencies": {
     "@types/node": "22.7.5",
